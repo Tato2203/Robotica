@@ -1,33 +1,31 @@
-const int buttonPin = 2;     // the number of the pushbutton pin
-
-const int FRLegForw = 
-const int FRLegUp
-const int FLLegForw
-const int FLLegUp
-const int RLLegForw
-const int RRLegForw
+const int FRRL_LegForw = 0;
+const int FLRR_LegForw = 1;
+const int FRRL_LegBack = 3;
+const int FLRR_LegBack = 4;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(FRLegForw, OUTPUT);
-  pinMode(FRLegUp, OUTPUT);
-  pinMode(FLLegForw, OUTPUT);
-  pinMode(FLLegUp, OUTPUT);
-  pinMode(RLLegForw, OUTPUT);
-  pinMode(RRLegForw, OUTPUT);
+  pinMode(FRRL_LegForw, OUTPUT);
+  pinMode(FLRR_LegForw, OUTPUT);
+  pinMode(FRRL_LegBack, OUTPUT);
+  pinMode(FLRR_LegBack, OUTPUT);
   // initialize the pushbutton pin as an input:
-  pinMode(buttonPin, INPUT);
+  digitalWrite(FRRL_LegForw, LOW);
+  digitalWrite(FLRR_LegForw, LOW);
+  digitalWrite(FRRL_LegBack, LOW);
+  digitalWrite(FLRR_LegBack, LOW);
 }
 
 void loop() {
-  buttonState = digitalRead(buttonPin);
-
-  // check if the pushbutton is pressed. If it is, the buttonState is HIGH:
-  if (buttonState == HIGH) {
     // turn LED on:
-    digitalWrite(ledPin, HIGH);
-  } else {
-    // turn LED off:
-    digitalWrite(ledPin, LOW);
-  }
+    digitalWrite(0, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(1, LOW);
+    digitalWrite(4, LOW);
+    delay(5000);
+    digitalWrite(0, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(1, HIGH);
+    digitalWrite(4, HIGH);
+    delay(5000);
 }
